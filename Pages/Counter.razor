@@ -1,10 +1,10 @@
 @page "/counter"
 
-<h1>Counter</h1>
+<TitleModule Title="Counter" />
 
 @if(currentCount != 0)
 {
-<p>Current count: @currentCount</p>
+    <p>Current count: @currentCount</p>
 }
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
