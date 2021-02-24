@@ -18,6 +18,8 @@ namespace blazorApp
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
+            builder.Logging.SetMinimumLevel(LogLevel.Debug);
+
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
             

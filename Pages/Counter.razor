@@ -1,6 +1,7 @@
 @page "/counter/{CounterParam?}"
 @using Microsoft.Extensions.Configuration
 @inject IConfiguration Config
+@inject ILogger<Counter> logger
 
 <TitleModule Title="Counter" />
 
@@ -23,7 +24,9 @@
         else
         {
             currentCount = 0;
-        }        
+        } 
+
+        logger.LogInformation($"Initializing component currentCount={currentCount}");    
     }
 
     [Parameter]
@@ -44,7 +47,8 @@
 
     private void IncrementCount()
     {
-        var counterIncrese = int.Parse(Config["counterIncrese"]);
-        currentCount = currentCount+counterIncrese;
+        var counterIncrease = int.Parse(Config["counterIncrease"]);
+        currentCount = currentCount+counterIncrease;
+        logger.LogInformation($"currenCount increase by {counterIncrease}");
     }
 }
