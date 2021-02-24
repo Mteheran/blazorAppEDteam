@@ -1,5 +1,5 @@
 ﻿@page "/fetchdata"
-@inject HttpClient Http
+@inject IWeatherForecastService service
 
 <TitleModule Title="Weather forecast" />
 
@@ -39,7 +39,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        forecasts = await service.GetWeatherForecasts();
     }
 
     public class WeatherForecast
