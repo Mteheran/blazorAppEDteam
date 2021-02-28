@@ -2,6 +2,7 @@
 @using Microsoft.Extensions.Configuration
 @inject IConfiguration Config
 @inject ILogger<Counter> logger
+@inject IToastService toastService
 
 <TitleModule Title="Counter" />
 
@@ -50,5 +51,6 @@
         var counterIncrease = int.Parse(Config["counterIncrease"]);
         currentCount = currentCount+counterIncrease;
         logger.LogInformation($"currenCount increase by {counterIncrease}");
+        toastService.ShowInfo("Count increased");
     }
 }
