@@ -1,5 +1,6 @@
 ﻿@page "/fetchdata"
 @inject IWeatherForecastService service
+@inject IJSRuntime jsRuntime
 
 <TitleModule Title="Weather forecast" />
 
@@ -11,7 +12,7 @@
 }
 else
 {
-    <table class="table">
+    <table id="table1" class="table">
         <thead>
             <tr>
                 <th>Date</th>
@@ -40,6 +41,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         forecasts = await service.GetWeatherForecasts();
+        await jsRuntime.InvokeVoidAsync("dataTable", "table1");
     }
 
     public class WeatherForecast

@@ -1,5 +1,6 @@
 @page "/todo/"
 @using Models
+@inject IJavascriptHelper jsHelper
 
 <h1>To-do List</h1>
 
@@ -51,10 +52,12 @@
     private List<ToDoTask> ToDoList = new List<ToDoTask>();
     
 
-    private void HandleSubmit()
+    private async Task HandleSubmit()
     {
         ToDoList.Add(ModelTask);
         ModelTask = new ToDoTask();
+        await jsHelper.Confirmation();
+       
     }
 
 }

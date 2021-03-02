@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using blazorApp.Services;
 using Blazored.Toast;
+using blazorApp.Helpers;
 
 namespace blazorApp
 {
@@ -25,6 +26,7 @@ namespace blazorApp
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+            builder.Services.AddScoped<IJavascriptHelper, JavascriptHelper>();
             
             await builder.Build().RunAsync();
         }
