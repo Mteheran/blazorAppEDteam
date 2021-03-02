@@ -1,0 +1,17 @@
+@page "/todo/"
+@using Models
+
+<h1>To-do List</h1>
+
+<EditForm Model="@ModelTask">
+    <label>
+        Task
+    </label>
+   <input type="text" />
+</EditForm>
+
+@code
+{
+    public ToDoTask ModelTask {get;set;} = new ToDoTask();
+
+}
