@@ -10,6 +10,14 @@
         </label>
     <InputText @bind-Value="ModelTask.Description"></InputText>
    </div>
+    <div class="form-group">
+       <label>State</label>
+       <InputSelect @bind-Value="ModelTask.TaskState">
+            <option value="Active">Active</option>
+            <option value="Hold">Hold</option>
+            <option value="Removed">Removed</option>
+       </InputSelect>
+   </div>
    <div class="form-group">
    <label>
        Date 
