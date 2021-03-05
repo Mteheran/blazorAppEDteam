@@ -24,7 +24,9 @@ namespace blazorApp
 
             builder.Services.AddBlazoredToast();
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            string ApiUrl = builder.Configuration.GetValue<string>("apiUrl");
+
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(ApiUrl) });
             builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
             builder.Services.AddScoped<IJavascriptHelper, JavascriptHelper>();
             
