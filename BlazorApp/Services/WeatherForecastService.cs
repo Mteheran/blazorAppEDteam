@@ -19,7 +19,7 @@ namespace blazorApp.Services
 
         public async Task<WeatherForecast[]> GetWeatherForecasts()
         {
-            return await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+            return await Http.GetFromJsonAsync<WeatherForecast[]>("https://localhost:5005/weatherforecast");
         }
     }
 
