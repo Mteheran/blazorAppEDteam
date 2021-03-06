@@ -1,16 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <TypeScriptToolsVersion>3.2</TypeScriptToolsVersion>
+    <TargetFramework>net5.0</TargetFramework>   
+    <BlazorCacheBootResources>false</BlazorCacheBootResources>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorLibrary\BlazorLibrary.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="wwwroot/example.ts" />
   </ItemGroup>
 
   <ItemGroup>
